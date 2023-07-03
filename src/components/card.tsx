@@ -17,7 +17,7 @@ interface ReasonProps {
 function ReasonCard(props: ReasonProps) {
     const {data} = props;
     return(
-        <div className="w-[300px] p-5">
+        <div className="md:w-[300px] p-5">
             <h1 className="my-4 text-lg font-bold text-center">{data.title}</h1>
             <p className="text-sm text-justify">{data.desc}</p>
         </div>
@@ -27,7 +27,7 @@ function ReasonCard(props: ReasonProps) {
 function Card(props: CardProps) {
     const {data} = props;
     return(
-        <div className="p-7 w-[350px] rounded-[12px] shadow-pantau-black/20 shadow-lg">
+        <div className="p-7 md:w-[350px] rounded-[12px] shadow-pantau-black/20 shadow-lg mx-5">
             <h1 className="text-lg font-bold text-center">{data.title}</h1>
             <img src={data.imgUrl} alt="" className="w-3/5 mx-auto my-4"/>
             <p className="text-sm text-justify">{data.desc}</p>
