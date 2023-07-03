@@ -15,6 +15,7 @@ function EmptyLayout(props: LayoutProps){
         <Head>
             <title>{pageTitle}</title>
             <meta name="description" content={description}></meta>
+            
         </Head>
         <div>
             {children}
