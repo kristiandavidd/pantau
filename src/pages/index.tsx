@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout";
 import Jumbotron from "@/components/jumbotron";
 import Problems from "@/components/problems";
+import Steps from "@/components/steps";
 
 export default function Home() {
   return(
@@ -9,6 +10,7 @@ export default function Home() {
     description="Ini Landing Page Pantau">
       <Jumbotron/>
       <Problems/>
+      <Steps/>
     </Layout>
   )
 }

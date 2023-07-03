@@ -1,3 +1,5 @@
+
+
 export default function Footer() {
     return(
         <div className="h-[350px] bg-pantau-green mt-8 overflow-hidden">
