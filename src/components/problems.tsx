@@ -1,7 +1,7 @@
 export default function Problems() {
     return(
         <div className="mb-20">
-            <h1 className="mb-8 text-xl font-bold text-center">Say Goodbye to Uncertainty in Your Fields</h1>
+            <h1 className="mb-8 text-2xl font-bold text-center">Say Goodbye to Uncertainty in Your Fields</h1>
             <div className="flex w-2/3 m-auto">
                 <div className="w-1/2">
                     <img src="../../problems.svg" alt="" />

@@ -3,6 +3,7 @@ import Jumbotron from "@/components/jumbotron";
 import Problems from "@/components/problems";
 import Steps from "@/components/steps";
 import Reason from "@/components/reason";
+import Partners from "@/components/partners";
 
 export default function Home() {
   return(
@@ -13,6 +14,7 @@ export default function Home() {
       <Problems/>
       <Steps/>
       <Reason/>
+      <Partners/>
     </Layout>
   )
 }
