@@ -12,7 +12,7 @@ export default function Login() {
                     <img src="../../logo.svg" alt="" className="w-[40px]"/>    
                     <p className="text-lg font-bold">Pantau</p>
                 </Link>
-                <div className="flex flex-col items-center justify-center w-1/4">
+                <div className="flex flex-col items-center justify-center w-2/3 md:w-1/2 lg:w-1/4">
                 
                     <h1 className="text-2xl font-bold">Masuk</h1>
                     <form action="" className="w-full">
