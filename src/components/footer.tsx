@@ -16,7 +16,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="h-[350px]">
-                    <img src="../../logow.svg" alt="" className="rotate-12"/>
+                    <img src="../../logog.svg" alt="" className="rotate-12"/>
                 </div>
             </div>
         </div>

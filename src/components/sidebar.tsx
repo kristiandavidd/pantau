@@ -11,7 +11,7 @@ export default function Sidebar() {
         }}> 
 
         <Link href="/dashboard">
-            <img src="../../logos.svg" alt="" className="w-[40px]"/>    
+            <img src="../../logow.svg" alt="" className="w-[40px]"/>    
         </Link>
         <Link href="/dashboard" className={`hover:bg-pantau-light-green/60 w-[40px] h-[40px] flex justify-center items-center rounded-lg active:bg-pantau-light-green/60 ${router.asPath === "/dashboard" && 'bg-pantau-light-green'}`} >
             <Home 
