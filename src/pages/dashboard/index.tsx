@@ -1,5 +1,15 @@
+import { EmptyLayout } from "@/components/layout"
+import Sidebar from "@/components/sidebar"
+
 export default function dashboard() {
     return(
-        <h1>ini dashboard</h1>
+        <EmptyLayout 
+        pageTitle="Dashboard | Pantau"
+        description="ini dashboard Pantau">
+            <div className="flex">
+                <Sidebar/>
+                <h1>ini dashboard</h1>    
+            </div>
+        </EmptyLayout>
     )
 }
