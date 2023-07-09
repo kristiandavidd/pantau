@@ -32,6 +32,10 @@ export default function Setting(){
                             <button  className=" bg-pantau-green text-center rounded-[8px] text-pantau-dark-green hover:bg-pantau-green/80 ease-in-out duration-300 text-sm py-2 px-8 w-full m-auto font-semibold">
                                 Update
                             </button> 
+                            <Spacer y={0.5} />
+                            <button  className="border-2 border-pantau-green/0 text-center rounded-[8px] text-pantau-green hover:bg-pantau-green/20 ease-in-out duration-300 text-sm py-2 px-8 w-full font-semibold m-auto hover:border-pantau-green/60 hover:text-pantau-dark-green">
+                                Logout
+                            </button> 
                         </Link>
                     </div>
                 </div>
