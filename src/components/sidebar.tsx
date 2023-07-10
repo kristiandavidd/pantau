@@ -15,12 +15,10 @@ export default function Sidebar(){
             className={`hover:bg-pantau-light-green/60 w-[40px] h-[40px] flex justify-center items-center rounded-lg active:bg-pantau-light-green/60`} >
             <HomeIcon className="w-[24px] text-white"/>
         </Link>
-
         <Link href="/dashboard/monitor" 
             className={`hover:bg-pantau-light-green/60 w-[40px] h-[40px] flex justify-center items-center rounded-lg active:bg-pantau-light-green/60`} >
             <ComputerDesktopIcon className="w-[24px] text-white"/>
         </Link>
-
         <Link href="/dashboard/setting" 
             className={`hover:bg-pantau-light-green/60 w-[40px] h-[40px] flex justify-center items-center rounded-lg active:bg-pantau-light-green/60`} >
             <Cog6ToothIcon className="w-[24px] text-white"/>

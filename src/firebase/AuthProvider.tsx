@@ -16,7 +16,8 @@ import {
   createUserWithEmailAndPassword, 
   getAuth, 
   sendPasswordResetEmail, 
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  confirmPasswordReset
  } from 'firebase/auth';
 
 export const auth = getAuth(app);
@@ -84,3 +85,19 @@ export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
 export const useUserContext = (): UserContextState => {
   return useContext(UserStateContext)
 }
+
+
+// kode tambahan
+// reset password
+export const passReset = async (email: string) => {
+  return await sendPasswordResetEmail(auth, email);
+};
+
+export const confirmThePasswordReset = async (
+  oobCode: string,
+  newPassword: string
+) => {
+  if (!oobCode && !newPassword) return;
+
+  return await confirmPasswordReset(auth, oobCode, newPassword);
+};

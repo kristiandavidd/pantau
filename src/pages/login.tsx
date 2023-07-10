@@ -1,69 +1,99 @@
 import { EmptyLayout } from "@/components/layout";
+import { useAuth } from "@/firebase/AuthProvider";
+import { PasswordInput, TextInput } from "@mantine/core";
+import { hasLength, isEmail, useForm } from "@mantine/form";
+import { Checkbox, Spacer } from "@nextui-org/react";
 import Link from "next/link";
-import { Checkbox, Input, Spacer} from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { auth } from "@/firebase/AuthProvider";
-import { signInWithEmailAndPassword } from "@firebase/auth";
-
-
-function LoginPart() {
-  const [ email, setEmail ] = useState("");
-  const [ pass, setPass ] = useState("");
-  const router = useRouter();
-  
-  // useEffect(() => {
-  // if (pass != null) 
-  //   router.push("/dashboard");
-  // }, [pass, router, setPass]);
-    
-  const loginHandler = () => {  
-    signInWithEmailAndPassword(auth, email, pass)
-    .then((useCredential) => {
-      // Signed In
-      const user = useCredential.user;
-      console.log(user);
-      alert("Successfully logged in");
-      router.push("/dashboard");
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      alert(errorCode);
-    })
-  }
-  return (
-    <div>
-      <Spacer y={1} />
-      <Input
-        placeholder="Email"
-        clearable
-        label="Email"
-        type="email"
-        width="100%"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <Spacer y={0.5} />
-      <Input.Password
-        placeholder="Password"
-        label="Password"
-        width="100%"
-        onChange={(e) => setPass(e.target.value)}
-      />
-      <Spacer y={0.5} />
-      <div className="flex justify-between">
-        <Checkbox color="success" size="xs" labelColor="default">
-        Ingat Saya
-        </Checkbox>
-        <p className="text-sm underline">Lupa Password?</p>
-      </div>
-      <Spacer y={1} />
-      <button onClick={loginHandler} className="bg-pantau-green text-center rounded-[8px] text-pantau-dark-green hover:bg-pantau-green/80 ease-in-out duration-300 text-sm py-2 px-8 w-full m-2 font-semibold">
-        Masuk
-      </button>
-    </div>
-  );
+import { useEffect } from "react";
+interface dataLogin {
+  email: string;
+  password: string;
 }
 
+function LoginPart() {
+  const router = useRouter();
+  const { signIn, user } = useAuth();
+  //run 2 times
+  useEffect(() => {
+    if (user !== null){
+      console.log("Menurut login : ");
+      console.log(user);
+      router.push("/dashboard");
+      console.log("Pindah ke dashboard dari login");
+    } 
+  }, [user]);
+
+  async function handleSubmit(values: dataLogin) {
+    try {
+      await signIn(values.email, values.password)
+      .then(() => {
+        alert("Successfully logged in");
+        router.push("/dashboard");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        alert(errorCode);
+      });
+    }catch(error){
+      //as
+    }
+  }
+
+  const form = useForm({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validate: {
+      email: isEmail("Invalid email"),
+      password: hasLength({ min: 8 }, "Password length is at least 8 characters"),
+    },
+  });
+
+  return (
+  <div className="w-full">
+    <Spacer y={1} />
+    <TextInput
+      id="input-email"
+      placeholder="example@email.com"
+      label="Email"
+      radius="md"
+      required
+      {...form.getInputProps("email")}
+    />
+    <Spacer y={0.5} />
+    <PasswordInput
+      placeholder="Password"
+      label="Password"
+      radius="md"
+      required
+      {...form.getInputProps("password")}
+    />
+    <Spacer y={0.5} />
+    <div className="flex justify-between">
+      <Checkbox color="success" size="xs" labelColor="default">
+      Ingat Saya
+      </Checkbox>
+      <p className="text-sm underline">Lupa Password?</p>
+    </div>
+    <Spacer y={1} />
+    <form
+      onSubmit={form.onSubmit((values) => {
+        const dataUp: dataLogin = {
+          email: values.email,
+          password: values.password,
+        };
+        handleSubmit(dataUp);
+      })}
+    >
+      <button className="bg-pantau-green text-center rounded-[8px] text-pantau-dark-green hover:bg-pantau-green/80 ease-in-out duration-300 text-sm py-2 px-8 w-full font-semibold">
+        Masuk
+      </button>
+    </form>
+  </div>
+  );
+}
 
 export default function login(){
   return(
@@ -86,4 +116,3 @@ export default function login(){
     </EmptyLayout>
   )
 }
-

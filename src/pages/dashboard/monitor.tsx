@@ -1,7 +1,7 @@
 import { EmptyLayout } from "@/components/layout";
 import Sidebar from "@/components/sidebar";
 import DashboardHeader from "@/components/dashboard_header";
-import { ViewfinderCircleIcon} from "@heroicons/react/24/solid"
+import { ViewfinderCircleIcon } from "@heroicons/react/24/solid"
 import {PlusCircleIcon} from "@heroicons/react/24/outline"
 import Webcam from "react-webcam"
 import { useRef,useState, useEffect } from "react";
@@ -11,7 +11,7 @@ import Buttons from "@/components/button";
 
 const CameraProps = ["CCTV","CCTV","CCTV"]
 
-export default function Setting(){
+export default function monitor(){
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const photoRef = useRef<HTMLCanvasElement  | null>(null);
     const [hasPhoto, setHasPhoto] = useState(false);
