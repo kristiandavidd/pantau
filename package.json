@@ -9,7 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
     "@heroicons/react": "^2.0.18",
+    "@mantine/core": "^6.0.16",
+    "@mantine/form": "^6.0.16",
+    "@mantine/hooks": "^6.0.16",
+    "@mantine/notifications": "^6.0.16",
     "@nextui-org/react": "^1.0.0-beta.13",
     "@types/node": "20.3.3",
     "@types/react": "18.2.14",
@@ -17,10 +22,11 @@
     "autoprefixer": "10.4.14",
     "eslint": "^8.44.0",
     "eslint-config-next": "^12.0.4",
-    "firebase": "^10.0.0",
+    "firebase": "^9.22.0",
     "next": "13.4.7",
     "postcss": "8.4.24",
     "react": "18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
     "react-webcam": "^7.1.1",
     "tailwindcss": "3.3.2"
@@ -36,6 +42,7 @@
     "typescript": "^5.1.6"
   },
   "overrides": {
-    "semver": "^7.5.3"
+    "semver": "^7.5.3",
+    "protobufjs": "^7.2.2"
   }
 }
