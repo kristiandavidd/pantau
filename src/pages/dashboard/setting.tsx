@@ -3,17 +3,18 @@ import Sidebar from "@/components/sidebar";
 import DashboardHeader from "@/components/dashboard_header";
 import { Spacer, Input } from "@nextui-org/react";
 import Link from "next/link";
+import NavButton from "@/components/nav_button";
 
 export default function Setting(){
     return(
         <EmptyLayout 
         pageTitle="Setting | Pantau"
         description="ini dashboard Pantau">
-            <div className="flex">
+            <div className="flex pb-20 lg:pb-0">
                 <Sidebar/>
                 <div className="flex flex-col items-center w-full px-5 py-3">
                     <DashboardHeader title="Setting"/>
-                    <div className="w-1/3">
+                    <div className="w-2/3 md:w-1/2 lg:w-1/3">
                         <img src="../../pp.svg" alt="" className="w-1/4 m-auto rounded-full"/>
                         <p className="text-[12px] text-pantau-green underline text-center m-2">Change Image</p>
                         <form action="" className="w-full">
@@ -36,7 +37,11 @@ export default function Setting(){
                     </div>
                 </div>
             </div>
-            
+            <div className="fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 lg:hidden">
+                <div className="grid h-full max-w-lg grid-cols-3 mx-auto font-medium">
+                <NavButton/>
+                </div>
+            </div>
         </EmptyLayout>
     )
 }

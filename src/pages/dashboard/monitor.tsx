@@ -3,13 +3,10 @@ import Sidebar from "@/components/sidebar";
 import DashboardHeader from "@/components/dashboard_header";
 import { ViewfinderCircleIcon} from "@heroicons/react/24/solid"
 import {PlusCircleIcon} from "@heroicons/react/24/outline"
-import Webcam from "react-webcam"
 import { useRef,useState, useEffect } from "react";
-import { Stream } from "stream";
-import { inherits } from "util";
-import Buttons from "@/components/button";
+import NavButton from "@/components/nav_button";
 
-const CameraProps = ["CCTV","CCTV","CCTV"]
+const CameraProps = ["CCTV","CCTV","CCTV", "CCTV", "CCTV"]
 
 export default function Setting(){
     const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -69,12 +66,12 @@ export default function Setting(){
         <EmptyLayout 
         pageTitle="Monitor | Pantau"
         description="ini monitor Pantau">
-            <div className="flex">
+            <div className="flex pb-32 lg:pb-0">
                 <Sidebar/>
                 <div className="flex flex-col items-center w-full px-5 py-3">
                     <DashboardHeader title="Monitor"/>
-                    <div className="flex w-full">
-                        <div className="w-1/4">
+                    <div className="flex flex-col m-4 lg:w-full lg:flex-row">
+                        <div className="w-full lg:w-1/4">
                             <h1 className="text-lg font-bold">Daftar Perangkat</h1>
                             <div className="flex gap-3 p-2">
                                 <PlusCircleIcon className="w-[20px] text-pantau-green"/>
@@ -88,7 +85,7 @@ export default function Setting(){
                                         <div className="p-2">
                                             <div className="flex gap-3">
                                                 <ViewfinderCircleIcon className="w-[24px]"/>
-                                                <h1 className={`${index+1 === 1 && 'font-bold'}`}>{data} + {index+1}</h1>    
+                                                <h1 className={`${index+1 === 1 && 'font-bold'}`}>{data} {index+1}</h1>    
                                             </div>
                                             <hr />    
                                         </div>
@@ -97,7 +94,7 @@ export default function Setting(){
                             </div>
                         </div>
                         
-                        <div className="flex w-3/4 gap-4">
+                        <div className="flex flex-col items-center gap-4 items lg:flex-row lg:items-start">
                             <div className="flex flex-col items-center rounded-xl">
                                 <video ref={videoRef} className="h-[300px]"></video>
                                 <button onClick={takePhoto} className=" bg-pantau-green text-center rounded-[8px] text-pantau-dark-green hover:bg-pantau-green/80 ease-in-out duration-300 text-sm py-2 px-8 w-fit m-4 font-semibold">
@@ -105,13 +102,18 @@ export default function Setting(){
                                 </button>
                             </div>
                             <div className={`flex flex-col items-center bg-pantau-light-green/30 h-[300px] w-[400px]` + (hasPhoto?'hasphoto': '')}>
-                                <canvas ref={photoRef}></canvas>
+                                <canvas ref={photoRef} className="m-auto"></canvas>
                                 <button onClick={closePhoto} className=" bg-pantau-green text-center rounded-[8px] text-pantau-dark-green hover:bg-pantau-green/80 ease-in-out duration-300 text-sm py-2 px-8 w-fit m-4 font-semibold">
                                     Close
                                 </button>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 lg:hidden">
+                <div className="grid h-full max-w-lg grid-cols-3 mx-auto font-medium">
+                <NavButton/>
                 </div>
             </div>
         </EmptyLayout>

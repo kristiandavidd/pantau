@@ -5,7 +5,7 @@ import {HomeIcon, ComputerDesktopIcon, Cog6ToothIcon} from "@heroicons/react/24/
 export default function Sidebar() {
     const router = useRouter();
     return(
-    <div className="w-[150px] h-screen bg-center bg-cover rounded-r-[32px] flex flex-col items-center gap-4 p-10" 
+    <div className="hidden w-[150px] h-screen bg-center bg-cover rounded-r-[32px] lg:flex flex-col items-center gap-4 p-10" 
         style={{
             backgroundImage: "url('../../bg.svg')",
         }}> 
