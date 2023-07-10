@@ -1,6 +1,6 @@
 import { EmptyLayout } from "@/components/layout";
+import { Checkbox, PasswordInput, Space, TextInput } from "@mantine/core";
 import Link from "next/link";
-import { Input,Checkbox, Spacer} from "@nextui-org/react";
 
 export default function Login() {
     return(
@@ -16,16 +16,29 @@ export default function Login() {
                 
                     <h1 className="text-2xl font-bold">Masuk</h1>
                     <form action="" className="w-full">
-                        <Spacer y={1} />
-                        <Input type="email" width="100%"clearable bordered label="Email" size="sm" placeholder="Email"/>
-                        <Spacer y={0.5} />
-                        <Input type="password" label="Password" bordered width="100%" size="sm" placeholder="Password"/>
-                        <Spacer y={0.5} />
+                        <Space h="lg" />
+                        <TextInput
+                            id="input-email"
+                            placeholder="example@email.com"
+                            label="Email"
+                            radius="md"
+                            required
+                            //   {...form.getInputProps("email")}
+                        />
+                        <Space h="sm" />
+                        <PasswordInput
+                            placeholder="Password"
+                            label="Password"
+                            radius="md"
+                            required
+                            // {...form.getInputProps("password")}
+                        />
+                        <Space h="sm" />
                         <div className="flex justify-between">
-                            <Checkbox color="success" size="xs" labelColor="default">Ingat Saya</Checkbox>
+                        <Checkbox label="Ingat saya" color="green" radius="md" disabled />
                             <Link href="/" className="text-sm underline">Lupa Password?</Link>
                         </div>
-                        <Spacer y={1} />
+                        <Space h="lg" />
                     </form>        
                     
                     <Link href="/dashboard" className=" bg-pantau-green text-center rounded-[8px] text-pantau-dark-green hover:bg-pantau-green/80 ease-in-out duration-300 text-sm py-2 px-8 w-full m-2 font-semibold">

@@ -1,9 +1,10 @@
 import { EmptyLayout } from "@/components/layout";
 import Sidebar from "@/components/sidebar";
 import DashboardHeader from "@/components/dashboard_header";
-import { Spacer, Input } from "@nextui-org/react";
 import Link from "next/link";
 import NavButton from "@/components/nav_button";
+import { Space, TextInput } from "@mantine/core";
+import { data } from "autoprefixer";
 
 export default function Setting(){
     return(
@@ -18,15 +19,17 @@ export default function Setting(){
                         <img src="../../pp.svg" alt="" className="w-1/4 m-auto rounded-full"/>
                         <p className="text-[12px] text-pantau-green underline text-center m-2">Change Image</p>
                         <form action="" className="w-full">
-                        <Spacer y={1} />
-                            <Input type="text" width="100%"clearable bordered label="Username" size="sm" placeholder="Username"/>
-                            <Spacer y={0.5} />
-                            <Input type="email" width="100%"clearable bordered label="Email" size="sm" placeholder="Email"/>
-                            <Spacer y={0.5} />
-                            <Input type="password" label="Old Password" bordered width="100%" size="sm" placeholder="Old Password"/>
-                            <Spacer y={0.5} />
-                            <Input type="password" label="New Password" bordered width="100%" size="sm" placeholder="New Password"/>
-                            <Spacer y={1} />
+                            <Space h="lg" />
+                            <TextInput type="text" width="100%" disabled label="Username" radius="md" 
+                                placeholder="email"
+                                // placeholder={data.email}
+                            />
+                            <Space h="sm" />
+                            <TextInput type="email" width="100%" disabled label="Email" radius="md" 
+                                placeholder="username"
+                                // placeholder={data.username}
+                            />
+                            <Space h="sm" />
                             
                         </form>
                         <Link href="/dashboard/setting">
