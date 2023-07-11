@@ -20,14 +20,20 @@ export default function DashboardHeader(props: { title: string }) {
             router.push("/login");
         }
     }, [user]);
-      
+    
     const email = user?.email ? user.email : "user";
     async function callData() {
-        await getDataUser(email).then((res) => {
+        const res = await getDataUser(email);
+        try {
             setData(res);
-        });
+            console.log("traffic from dashheader");
+        }catch(error){
+
+        }
     }
-    callData();
+    useEffect(()=>{
+        callData();
+    }, [])
 
     return(
         <div className="flex justify-between w-full h-[60px] items-center">

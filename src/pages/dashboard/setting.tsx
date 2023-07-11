@@ -8,22 +8,24 @@ import { data } from "autoprefixer";
 import Users from "@/data/Users";
 import { useAuth } from "@/firebase/AuthProvider";
 import getDataUser from "@/firebase/getData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Setting(){
     const [data, setData] = useState<Users>({} as Users);
     const { user } = useAuth();
 
-    const email = user?.email ? user.email : "user";
-    
+    const email = user?.email ? user.email : "user";  
     // Cloud Firestore Entity Fetch Ops Quota 49,794 hati hati :)
     async function callData() {
         await getDataUser(email).then((res) => {
+            console.log("traffic from settings");
             setData(res);
         });
     }
     
-    callData();
+    useEffect(()=>{
+        callData();
+    }, [])
 
     return(
         <EmptyLayout 
@@ -38,7 +40,7 @@ export default function Setting(){
                             <Avatar radius="xl" size="xl" color="green" src={data.img}></Avatar>
                         </Center>
                         <p className="text-[12px] text-pantau-green underline text-center m-2">Change Image</p>
-                        <form action="" className="w-full">
+                        <div className="w-full">
                             <Space h="lg" />
                             <TextInput type="text" width="100%" disabled label="Username" radius="md" 
                                 placeholder={data.username}
@@ -49,7 +51,7 @@ export default function Setting(){
                             />
                             <Space h="sm" />
                             
-                        </form>
+                        </div>
                         <Link href="/dashboard/setting">
                             <button  className=" bg-pantau-green text-center rounded-[8px] text-pantau-dark-green hover:bg-pantau-green/80 ease-in-out duration-300 text-sm py-2 px-8 w-full m-auto font-semibold">
                                 Update Image
