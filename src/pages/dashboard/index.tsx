@@ -87,7 +87,9 @@ export default function dashboard(props:reportDataProps) {
           'rgb(255, 205, 86)',
           'rgb(201, 203, 207)',
           'rgb(54, 162, 235)'
-      ]
+      ],
+      hoverOffset: 4,
+      radius: "70%",
     }],
   };
 
@@ -106,12 +108,7 @@ export default function dashboard(props:reportDataProps) {
     },
     plugins: {
       legend: {
-        position: 'bottom',
-        labels: {
-          font: {
-            size: 10,
-          },
-        }
+        display: false
       },
 
     },
@@ -121,6 +118,8 @@ export default function dashboard(props:reportDataProps) {
     responsive: true,
     maintainAspectRatio: true,
     // aspectRatio: 2,
+    height:200,
+    width:200,
     layout: {
       padding: {
         left: 10,
@@ -131,12 +130,7 @@ export default function dashboard(props:reportDataProps) {
     },
     plugins: {
       legend: {
-        position: 'bottom',
-        labels: {
-          font: {
-            size: 10,
-          },
-        }
+        display: false
       },
 
     },
@@ -152,15 +146,15 @@ export default function dashboard(props:reportDataProps) {
               <DashboardHeader title="Dashboard"/>
               <div className="flex lg:flex-row w-full flex-col gap-4 lg:h-[250px]">
                   <div className="flex flex-col items-center self-center justify-start w-4/5 p-4 md:w-3/5 lg:w-1/3 bg-pantau-light-green/30 rounded-xl lg:self-auto">
-                    <h1 className="font-bold">Image Captured</h1>
+                    <h1 className="text-base font-bold">Image Captured</h1>
                     <Bar data={weeklyData}  options={barOptions} />
                   </div>
                   <div className="flex flex-col items-center self-center justify-start w-4/5 p-4 md:w-3/5 lg:w-1/3 bg-pantau-light-green/30 rounded-xl lg:self-auto">
-                    <h1 className="font-bold">Diseased Type</h1>
+                    <h1 className="text-base font-bold">Diseased Type</h1>
                     <Doughnut data={diseaseType_data} options={DoughOption}/>
                   </div>
-                  <div className="flex flex-col items-center self-center justify-start w-4/5 p-4 lg:self-auto md:w-3/5 lg:w-1/3 bg-pantau-light-green/30 rounded-xl">
-                    <h1 className="font-bold">CCTV distribution</h1>
+                  <div className="flex flex-col items-center self-center justify-start w-4/5 p-4 md:w-3/5 lg:w-1/3 bg-pantau-light-green/30 rounded-xl lg:self-auto">
+                    <h1 className="text-base font-bold">CCTV distribution</h1>
                     <Pie data={cctv_data} options={DoughOption}/>
                   </div>
               </div>

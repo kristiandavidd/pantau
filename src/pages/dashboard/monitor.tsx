@@ -85,7 +85,7 @@ export default function Setting(){
                                         <div className="p-2">
                                             <div className="flex gap-3">
                                                 <ViewfinderCircleIcon className="w-[24px]"/>
-                                                <h1 className={`${index+1 === 1 && 'font-bold'}`}>{data} {index+1}</h1>    
+                                                <h1 className={` text-base ${index+1 === 1 && 'font-bold'}`}>{data} {index+1}</h1>    
                                             </div>
                                             <hr />    
                                         </div>
@@ -94,18 +94,28 @@ export default function Setting(){
                             </div>
                         </div>
                         
-                        <div className="flex flex-col items-center gap-4 items lg:flex-row lg:items-start">
+                        <div className="flex flex-col items-center gap-4 p-2 items lg:flex-row lg:items-start bg-pantau-light-green/30">
                             <div className="flex flex-col items-center rounded-xl">
                                 <video ref={videoRef} className="h-[300px]"></video>
-                                <button onClick={takePhoto} className=" bg-pantau-green text-center rounded-[8px] text-pantau-dark-green hover:bg-pantau-green/80 ease-in-out duration-300 text-sm py-2 px-8 w-fit m-4 font-semibold">
+                                {/* <button onClick={takePhoto} className=" bg-pantau-green text-center rounded-[8px] text-pantau-dark-green hover:bg-pantau-green/80 ease-in-out duration-300 text-sm py-2 px-8 w-fit m-4 font-semibold">
                                     Snap
-                                </button>
+                                </button> */}
                             </div>
                             <div className={`flex flex-col items-center bg-pantau-light-green/30 h-[300px] w-[400px]` + (hasPhoto?'hasphoto': '')}>
-                                <canvas ref={photoRef} className="m-auto"></canvas>
-                                <button onClick={closePhoto} className=" bg-pantau-green text-center rounded-[8px] text-pantau-dark-green hover:bg-pantau-green/80 ease-in-out duration-300 text-sm py-2 px-8 w-fit m-4 font-semibold">
+                                <div className="grid w-full h-full grid-cols-2 grid-rows-2 font-medium">
+                                {/* <video ref={videoRef} className=""></video> */}
+                                {/* <video ref={videoRef} className=""></video>
+                                <video ref={videoRef} className=""></video>
+                                <video ref={videoRef} className=""></video> */}
+                                <div className="self-center text-center text-pantau-dark-green">CCTV 2</div>
+                                <div className="self-center text-center text-pantau-dark-green">CCTV 3</div>
+                                <div className="self-center text-center text-pantau-dark-green">CCTV 4</div>
+                                <div className="self-center text-center text-pantau-dark-green">CCTV 5</div>
+                                {/* <canvas ref={photoRef} className="m-auto"></canvas> */}
+                                {/* <button onClick={closePhoto} className=" bg-pantau-green text-center rounded-[8px] text-pantau-dark-green hover:bg-pantau-green/80 ease-in-out duration-300 text-sm py-2 px-8 w-fit m-4 font-semibold">
                                     Close
-                                </button>
+                                </button> */}
+                                </div>
                             </div>
                         </div>
                     </div>
