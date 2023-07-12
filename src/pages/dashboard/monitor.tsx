@@ -94,9 +94,10 @@ export default function Setting(){
                             </div>
                         </div>
                         
-                        <div className="flex flex-col items-center gap-4 p-2 items lg:flex-row lg:items-start bg-pantau-light-green/30">
-                            <div className="flex flex-col items-center rounded-xl">
-                                <video ref={videoRef} className="h-[300px]"></video>
+                        <div className="flex flex-col items-center w-full gap-4 p-2 items lg:flex-row lg:items-start bg-pantau-light-green/30">
+                            <div className="flex flex-col items-center justify-center w-1/2 h-full rounded-xl">
+                                <div className="self-center text-center text-pantau-dark-green">CCTV 1</div>
+                                {/* <iframe ref={videoRef} className="h-[300px]" allow="camera;microphone" ></iframe> */}
                                 {/* <button onClick={takePhoto} className=" bg-pantau-green text-center rounded-[8px] text-pantau-dark-green hover:bg-pantau-green/80 ease-in-out duration-300 text-sm py-2 px-8 w-fit m-4 font-semibold">
                                     Snap
                                 </button> */}
